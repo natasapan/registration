@@ -1,19 +1,16 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.Statement;
 
 
 public class DB implements IStorage {
-
-	Connection c = null;
-	Statement stnt = null;
+	private Connection connection = null;
+	private Statement stnt = null;
 
 	DB() {
-
 		try {
 			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Registration.sqlite");
+			connection = DriverManager.getConnection("jdbc:sqlite:Registration.sqlite");
 			System.out.println("Connected to the DB!");
 
 		} catch (Exception e) {
@@ -22,13 +19,12 @@ public class DB implements IStorage {
 	}
 
 	public void addPerson() {
-
 		try {
-			this.stnt = c.createStatement();
+			this.stnt = connection.createStatement();
 
-			String insertPerson = "INSERT INTO Person(firstname, lastname, mobNum, email, "
-					+ "selary, dateOfBirth, jobTitle, contact"
-					+ "VALUES(e.firstname, e.lastname, e.mobNum, e.email, e.selary,"
+			String insertPerson = "INSERT INTO Person(firstName, lastName, mobNum, email, "
+					+ "salary, dateOfBirth, jobTitle, contact"
+					+ "VALUES(e.firstName, e.lastName, e.mobNum, e.email, e.salary,"
 					+ " e.dateOfBirth, e.jobTitle, e.contact);";
 			stnt.executeUpdate(insertPerson);
 
@@ -39,7 +35,7 @@ public class DB implements IStorage {
 
 	public void closeConnection() {
 		try {
-			c.close();
+			connection.close();
 		} catch (Exception e) {
 			System.out.println("Error" + e.getMessage());
 		}

@@ -4,39 +4,35 @@ import java.util.ArrayList;
 
 
 public class CSV implements IStorage {
-
 	private static final String COMMA_DELIMITER = ",";
 	private static final String NEW_LINE_SEPARATOR = "\n";
-	static FileWriter fileWriter = null;
-	private static ArrayList<Person> attendies;
-	private static String fileName = "registration.csv";
-	
+	private static FileWriter fileWriter = null;
+	private static ArrayList<Person> attendees;
 
 	public void addPerson() {
+		final String fileName = "registration.csv";
 
 		try {
 			fileWriter = new FileWriter(fileName);
 			fileWriter.append(NEW_LINE_SEPARATOR);
-			for (Person attendie : attendies) {
-				fileWriter.append(attendie.getFirstname());
+			for (Person attendee : attendees) {
+				fileWriter.append(attendee.getFirstName());
 				fileWriter.append(COMMA_DELIMITER);
-				fileWriter.append(attendie.getLastname());
+				fileWriter.append(attendee.getLastName());
 				fileWriter.append(COMMA_DELIMITER);
-				fileWriter.append(attendie.getMobNum());
+				fileWriter.append(attendee.getMobNum());
 				fileWriter.append(COMMA_DELIMITER);
-				fileWriter.append(attendie.getEmail());
+				fileWriter.append(attendee.getEmail());
 				fileWriter.append(COMMA_DELIMITER);
 				fileWriter.append(NEW_LINE_SEPARATOR);
-				fileWriter.append(attendie.getCompany());
+				fileWriter.append(attendee.getCompany());
 				fileWriter.append(COMMA_DELIMITER);
-				fileWriter.append(attendie.getLastname());
+				fileWriter.append(attendee.getLastName());
 				fileWriter.append(COMMA_DELIMITER);
-				fileWriter.append(attendie.getGender());
+				fileWriter.append(attendee.getGender());
 				fileWriter.append(COMMA_DELIMITER);
-				fileWriter.append(String.valueOf(attendie.getAge()));
+				fileWriter.append(String.valueOf(attendee.getAge()));
 				fileWriter.append(NEW_LINE_SEPARATOR);
-
-
 			}
 
 			System.out.println("CSV file was created successfully !!!");

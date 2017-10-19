@@ -3,87 +3,66 @@ import java.util.Scanner;
 
 
 public class UI {
+	private ArrayList<Person> attendees = new ArrayList<Person>();
+	private Scanner input = new Scanner(System.in);
 
-	private String answer;
-	ArrayList<Person> attendies = new ArrayList<Person>();
-	Scanner input = new Scanner(System.in);
+	UI() {}
 
-	public UI() {
+	public ArrayList<Person> getAttendees() {
+		return attendees;
 	}
 
-	public String getAnswer() {
-		return answer;
+	public void setAttendees(ArrayList<Person> attendees) {
+		this.attendees = attendees;
 	}
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
+	public void addAttendee() {
+		final String firstNameQuestion = "Enter first name: ";
+		final String lastNameQuestion = "Enter last name: ";
+		final String mobileNumberQuestion = "Enter mobile number: ";
+		final String emailQuestion = "Enter e-mail: ";
+		System.out.print("Which type of attendee do you wish to enter? employee, contractor or guest?");
+		String answer = input.nextLine();
 
-	public void personDetails() {
-
-		System.out
-				.print("Which type of atendee do you wish to enter? employee,"
-						+ " contractor or guest?");
-		answer = input.nextLine();
+		System.out.print(firstNameQuestion);
+		String fname = input.nextLine();
+		System.out.print(lastNameQuestion);
+		String lname = input.nextLine();
+		System.out.print(mobileNumberQuestion);
+		String mnum = input.nextLine();
+		System.out.print(emailQuestion);
+		String eMail = input.nextLine();
 
 		if (answer.equals("employee")) {
-
-			System.out.print("Enter first name: ");
-			String fname = input.nextLine();
-			System.out.print("Enter last name: ");
-			String lname = input.nextLine();
-			System.out.print("Enter mobile number: ");
-			String mnum = input.nextLine();
-			System.out.print("Enter e-mail: ");
-			String e_mail = input.nextLine();
 			System.out.print("Enter salary: ");
 			double salary = input.nextDouble();
 			System.out.print("Enter the date of birth: ");
 			long dob = input.nextLong();
 			System.out.print("Enter job title: ");
 			String jobt = input.nextLine();
-			Employee e = new Employee(fname, lname, mnum, e_mail, salary, dob,
-					jobt);
-			attendies.add(e);
+			Employee employee = new Employee(fname, lname, mnum, eMail, salary, dob, jobt);
+			attendees.add(employee);
 
 		} else if (answer.equals("contractor")) {
-
-			System.out.print("Enter first name: ");
-			String fname = input.nextLine();
-			System.out.print("Enter last name: ");
-			String lname = input.nextLine();
-			System.out.print("Enter mobile number: ");
-			String mnum = input.nextLine();
-			System.out.print("Enter e-mail: ");
-			String e_mail = input.nextLine();
 			System.out.print("Enter the date of birth: ");
 			long dob = input.nextLong();
 			System.out.print("Enter Company: ");
 			String comp = input.nextLine();
 			System.out.print("Enter Contact: ");
 			String cont = input.nextLine();
-			Contractor e1 = new Contractor(fname, lname, mnum, e_mail, cont, dob, comp);
-			attendies.add(e1);
+			Contractor contractor = new Contractor(fname, lname, mnum, eMail, cont, dob, comp);
+			attendees.add(contractor);
 
 		} else if (answer.equals("guest")) {
-
-			System.out.print("Enter first name: ");
-			String fname = input.nextLine();
-			System.out.print("Enter last name: ");
-			String lname = input.nextLine();
-			System.out.print("Enter mobile number: ");
-			String mnum = input.nextLine();
-			System.out.print("Enter e-mail: ");
-			String e_mail = input.nextLine();
 			System.out.print("Enter company: ");
 			String comp = input.nextLine();
 			System.out.print("Enter contact: ");
 			String cont = input.nextLine();
 			
-			Guest e2 = new Guest(fname, lname, mnum, e_mail, comp, cont);
-			attendies.add(e2);
-
+			Guest guest = new Guest(fname, lname, mnum, eMail, comp, cont);
+			attendees.add(guest);
 		}
+
 	}
 
 }

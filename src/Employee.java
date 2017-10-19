@@ -1,22 +1,22 @@
 
 public class Employee extends Person{
 	
-	private double selary;
+	private double salary;
 	private long dateOfBirth;
 	private String jobTitle;
 
-	public Employee(String firstname, String lastname, String mobNum, String email,
-			double selary, long dateOfBirth, String jobTitle) {
-		super(firstname, lastname, mobNum, email);
+	public Employee(String firstName, String lastName, String mobNum, String email,
+			double salary, long dateOfBirth, String jobTitle) {
+		super(firstName, lastName, mobNum, email);
 		
 	}
 
-	public double getSelary() {
-		return selary;
+	public double getSalary() {
+		return salary;
 	}
 
-	public void setSelary(double selary) {
-		this.selary = selary;
+	public void setSalary(double salary) {
+		this.salary = salary;
 	}
 
 	public long getDateOfBirth() {

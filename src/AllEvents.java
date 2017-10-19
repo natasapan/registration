@@ -1,5 +1,5 @@
-import java.security.KeyStore.Entry;
 import java.sql.Date;
+import java.util.Map.Entry;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Hashtable;
@@ -7,24 +7,26 @@ import java.util.Hashtable;
 
 public class AllEvents {
 	Hashtable<Date,ArrayList<Person>> events = new Hashtable<Date,ArrayList<Person>>();
-	ArrayList<Person> attendies;
-	private java.sql.Date Date;
+	private ArrayList<Person> attendees;
 	
-	public static void Date() {
-		   Calendar cal = Calendar.getInstance();
-		    	int year = cal.get(Calendar.YEAR);
-		    	int month = cal.get(Calendar.MONTH);      
-		    	int day = cal.get(Calendar.DAY_OF_MONTH);
-		    	System.out.println(year + "/" + (month+1) +  "/" + day);
+	public static void getDateString() {
+		   Calendar calendar = Calendar.getInstance();
+		    	int year = calendar.get(Calendar.YEAR);
+		    	int month = calendar.get(Calendar.MONTH);
+		    	int day = calendar.get(Calendar.DAY_OF_MONTH);
+		    	System.out.println(year + "/" + (month + 1) +  "/" + day);
 		   }
-	public void addToEvents(){
-		events.put(Date, new ArrayList<Person>(attendies));
+
+	public void addToEvents() {
+		events.put(getDateString(), new ArrayList<Person>(attendees));
 	}
-	public void displayEvents(){
-	    for (java.util.Map.Entry<java.sql.Date, ArrayList<Person>> entry : events.entrySet()) {
-	        System.out.print(entry.getKey()+" | ");
+
+	public void displayEvents() {
+	    for (Entry<Date, ArrayList<Person>> entry: events.entrySet()) {
+	        System.out.print(entry.getKey() + " | ");
+
 	        for(Person att : entry.getValue()){
-	            System.out.print(att+" ");
+	            System.out.print(att + " ");
 	        }
 	        System.out.println();
 	    }	

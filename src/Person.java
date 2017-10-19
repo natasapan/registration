@@ -1,35 +1,35 @@
-
 public class Person {
-	private String firstname;
-	private String lastname;
+	private String firstName;
+	private String lastName;
 	private String mobNum;
 	private String email;
 	private IMessage msg = null;
-	
-	public Person (String firstname, String lastname, String mobNum, String email) {
-		this.firstname = firstname;
-		this.lastname = lastname;
+
+	public Person(String firstName, String lastName, String mobNum, String email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.mobNum = mobNum;
 		this.email = email;
-	 }
-	public Person(IMessage msg){
+	}
+
+	public Person(IMessage msg) {
 		this.msg = msg;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getMobNum() {
@@ -47,28 +47,25 @@ public class Person {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public IMessage getMsg() {
 		return msg;
 	}
+
 	public void setMsg(IMessage msg) {
 		this.msg = msg;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Person [firstname=" + firstname + ", lastname=" + lastname
+		return "Person [firstName=" + firstName + ", lastName=" + lastName
 				+ ", mobNum=" + mobNum + "]";
 	}
 
-	public void sendMessage(String msgFrom, String msgTo, String message){
-		
+	public void sendMessage(String msgFrom, String msgTo, String message) {
 		System.out.println(message);
-		
 	}
-	
-		
-		
-	}
+}
 	
 
 

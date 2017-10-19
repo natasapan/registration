@@ -3,9 +3,11 @@ public class Guest extends Person {
 	private String company;
 	private String contact;
 
-	public Guest(String firstname, String lastname, String mobNum, String email,
+	public Guest(String firstName, String lastName, String mobNum, String email,
 			String company, String contact) {
-		super(firstname, lastname, mobNum, email);
+		super(firstName, lastName, mobNum, email);
+		this.company = company;
+		this.contact = contact;
 		
 	}
 
@@ -24,6 +26,4 @@ public class Guest extends Person {
 	public void setContact(String contact) {
 		this.contact = contact;
 	}
-	
-
 }

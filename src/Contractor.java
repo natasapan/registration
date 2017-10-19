@@ -5,9 +5,12 @@ public class Contractor extends Person {
 	private long dateOfBirth;
 	private String contact;
 	
-	public Contractor(String firstname, String lastname, String mobNum, String email,
-			String company, long dateOfBirth,String contact) {
-		super(firstname, lastname, mobNum, email);
+	Contractor(String firstName, String lastName, String mobNum, String email,
+			String company, long dateOfBirth, String contact) {
+		super(firstName, lastName, mobNum, email);
+		this.company = company;
+		this.dateOfBirth = dateOfBirth;
+		this.contact = contact;
 		
 	}
 

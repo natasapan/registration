@@ -2,19 +2,15 @@ import java.util.ArrayList;
 
 
 public class Event {
-	public ArrayList<Person> attendies;
+	public ArrayList<Person> attendees;
 
-	public Event(ArrayList<Person> attendies) {
-		this.attendies = attendies;
+	public Event(ArrayList<Person> attendees) {
+		this.attendees = attendees;
 	}
 	
-	public Event(){
-		
-	}
-	
-	public void displayAttendies() {
-		for (Person attendie : attendies) {
-			System.out.println(attendie);
+	public void displayAttendees() {
+		for (Person attendee: attendees) {
+			System.out.println(attendee);
 		}
 	}
 }
