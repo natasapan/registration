@@ -2,16 +2,15 @@
 public class Contractor extends Person {
 	
 	private String company;
-	private long dateOfBirth;
+	private String dateOfBirth;
 	private String contact;
 	
 	Contractor(String firstName, String lastName, String mobNum, String email,
-			String company, long dateOfBirth, String contact) {
+			String company, String dateOfBirth, String contact) {
 		super(firstName, lastName, mobNum, email);
 		this.company = company;
 		this.dateOfBirth = dateOfBirth;
 		this.contact = contact;
-		
 	}
 
 	public String getCompany() {
@@ -22,11 +21,11 @@ public class Contractor extends Person {
 		this.company = company;
 	}
 
-	public long getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(long dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

@@ -8,7 +8,6 @@ public class Guest extends Person {
 		super(firstName, lastName, mobNum, email);
 		this.company = company;
 		this.contact = contact;
-		
 	}
 
 	public String getCompany() {

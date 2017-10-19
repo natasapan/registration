@@ -1,35 +1,31 @@
-import java.sql.Date;
-import java.util.Map.Entry;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Hashtable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 public class AllEvents {
-	Hashtable<Date,ArrayList<Person>> events = new Hashtable<Date,ArrayList<Person>>();
-	private ArrayList<Person> attendees;
-	
-	public static void getDateString() {
-		   Calendar calendar = Calendar.getInstance();
-		    	int year = calendar.get(Calendar.YEAR);
-		    	int month = calendar.get(Calendar.MONTH);
-		    	int day = calendar.get(Calendar.DAY_OF_MONTH);
-		    	System.out.println(year + "/" + (month + 1) +  "/" + day);
-		   }
+	private ArrayList<Event> events = new ArrayList<Event>();
 
-	public void addToEvents() {
-		events.put(getDateString(), new ArrayList<Person>(attendees));
+	public void addToEvents(Event event) {
+		events.add(event);
 	}
 
-	public void displayEvents() {
-	    for (Entry<Date, ArrayList<Person>> entry: events.entrySet()) {
-	        System.out.print(entry.getKey() + " | ");
+	public void findEvent(String dateInput) {
+		final DateFormat format = new SimpleDateFormat("dd MM yyyy", Locale.ENGLISH);
+		Date date = null;
+		try {
+			date = format.parse(dateInput);
+		} catch (Exception e) {
+			System.out.print("Couldn't parse the Date. Please try again");
+		}
 
-	        for(Person att : entry.getValue()){
-	            System.out.print(att + " ");
-	        }
-	        System.out.println();
-	    }	
+		if (date != null) {
+			for (Event event : this.events) {
+				if (event.getDate().equals(date)) {
+					System.out.println(event);
+				}
+			}
+		}
 	}
 }
 	      

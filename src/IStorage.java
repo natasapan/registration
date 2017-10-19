@@ -1,4 +1,5 @@
+import java.util.ArrayList;
 
 public interface IStorage {
-	public void addPerson();
+	public void addAttendees(ArrayList<Person> attendees);
 }

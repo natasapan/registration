@@ -61,10 +61,6 @@ public class Person {
 		return "Person [firstName=" + firstName + ", lastName=" + lastName
 				+ ", mobNum=" + mobNum + "]";
 	}
-
-	public void sendMessage(String msgFrom, String msgTo, String message) {
-		System.out.println(message);
-	}
 }
 	
 

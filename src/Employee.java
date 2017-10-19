@@ -8,7 +8,9 @@ public class Employee extends Person{
 	public Employee(String firstName, String lastName, String mobNum, String email,
 			double salary, long dateOfBirth, String jobTitle) {
 		super(firstName, lastName, mobNum, email);
-		
+		this.salary = salary;
+		this.dateOfBirth = dateOfBirth;
+		this.jobTitle = jobTitle;
 	}
 
 	public double getSalary() {

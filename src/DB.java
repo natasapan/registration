@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 
 public class DB implements IStorage {
@@ -18,13 +19,13 @@ public class DB implements IStorage {
 		}
 	}
 
-	public void addPerson() {
+	public void addAttendees(ArrayList<Person> attendees) {
 		try {
 			this.stnt = connection.createStatement();
 
 			String insertPerson = "INSERT INTO Person(firstName, lastName, mobNum, email, "
 					+ "salary, dateOfBirth, jobTitle, contact"
-					+ "VALUES(e.firstName, e.lastName, e.mobNum, e.email, e.salary,"
+					+ "VALUES(ez.firstName, e.lastName, e.mobNum, e.email, e.salary,"
 					+ " e.dateOfBirth, e.jobTitle, e.contact);";
 			stnt.executeUpdate(insertPerson);
 
