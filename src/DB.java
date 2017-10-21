@@ -19,10 +19,10 @@ public class DB implements IStorage {
 		}
 	}
 
-	public void addAttendees(ArrayList<Person> attendees) {
+	public void addAttendees(Person attendee) {
 		try {
 			this.stnt = connection.createStatement();
-
+			//TODO Implement add Attendee to DB
 			String insertPerson = "INSERT INTO Person(firstName, lastName, mobNum, email, "
 					+ "salary, dateOfBirth, jobTitle, contact"
 					+ "VALUES(ez.firstName, e.lastName, e.mobNum, e.email, e.salary,"
@@ -34,12 +34,17 @@ public class DB implements IStorage {
 		}
 	}
 
-	public void closeConnection() {
+	public void addEvent(Event event) {
+		//TODO Implement add event to database
+	}
+
+	public void close() {
 		try {
-			connection.close();
+			this.connection.close();
 		} catch (Exception e) {
-			System.out.println("Error" + e.getMessage());
+			System.out.print("Unable to close connection: " + e.getMessage());
 		}
+
 	}
 }
 

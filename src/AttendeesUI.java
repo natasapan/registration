@@ -6,8 +6,7 @@ public class AttendeesUI {
 	private ArrayList<Person> attendees = new ArrayList<Person>();
 	private Scanner input = new Scanner(System.in);
 
-	AttendeesUI() {
-	}
+	AttendeesUI() {}
 
 	public ArrayList<Person> getAttendees() {
 		return attendees;
@@ -17,7 +16,7 @@ public class AttendeesUI {
 		this.attendees = attendees;
 	}
 
-	public void addAttendee() {
+	public Person addAttendee() {
 		final String firstNameQuestion = "Enter first name: ";
 		final String lastNameQuestion = "Enter last name: ";
 		final String mobileNumberQuestion = "Enter mobile number: ";
@@ -44,6 +43,7 @@ public class AttendeesUI {
 				String jobTitle = input.nextLine();
 				Employee employee = new Employee(firstName, lastName, mnum, eMail, salary, dob, jobTitle);
 				attendees.add(employee);
+				return employee;
 
 			} else if (answer.equals("contractor")) {
 				System.out.print("Enter the date of birth: ");
@@ -54,6 +54,7 @@ public class AttendeesUI {
 				String contact = input.nextLine();
 				Contractor contractor = new Contractor(firstName, lastName, mnum, eMail, contact, dob, company);
 				attendees.add(contractor);
+				return contractor;
 
 			} else if (answer.equals("guest")) {
 				System.out.print("Enter company: ");
@@ -63,11 +64,13 @@ public class AttendeesUI {
 
 				Guest guest = new Guest(firstName, lastName, mnum, eMail, company, contact);
 				attendees.add(guest);
+				return guest;
 			}
 		} else {
 			System.out.println("Invalid choice, please try again");
 			this.addAttendee();
 		}
+		return null;
 	}
 
 	private boolean isValidAnswer(String answer) {

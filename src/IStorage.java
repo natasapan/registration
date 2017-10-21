@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
 public interface IStorage {
-	public void addAttendees(ArrayList<Person> attendees);
+	public void addAttendees(Person attendee);
+	public void addEvent(Event event);
+	public void close();
 }
